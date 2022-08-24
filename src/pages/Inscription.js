@@ -3,15 +3,18 @@ import EniEnchere from "../components/EniEnchere";
 import { useForm } from "react-hook-form";
 
 const Inscription = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data =>
-    console.log(data)
-    )
 
   return (
-    <div>
-      <EniEnchere />
-
+    <div className="index_settings">
+        <EniEnchere />
+        <form>
+                <label htmlFor="pseudo">Pseudo :</label>
+                <input type="text" name="pseudo" id="pseudo"/>
+                <label htmlFor="nom">Nom :</label>
+                <input type="text" name="nom" id="nom"/>
+                <button type="submit">Créer</button>
+                <button>Annuler</button>
+        </form>
     </div>
   );
 };

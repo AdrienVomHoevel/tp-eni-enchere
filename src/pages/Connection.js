@@ -3,9 +3,8 @@ import EniEnchere from '../components/EniEnchere';
 
 const Connection = () => {
     return (
-        <div>
+        <div className="index_settings">
             <EniEnchere/>
-            
         </div>
     );
 };

@@ -1,10 +1,9 @@
 import React from 'react';
+import { Heading } from '@chakra-ui/react'
 
 const EniEnchere = () => {
     return (
-        <div>
-            <h2>ENI-Enchères</h2> 
-        </div>
+            <Heading>ENI-Enchères</Heading>
     );
 };
 
