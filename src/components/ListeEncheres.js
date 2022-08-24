@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Card from "./Card";
-import { Center, Flex, Select, Spacer, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Flex,
+  Select,
+  Spacer,
+  Text,
+  Input,
+  Button,
+} from "@chakra-ui/react";
 
 const ListeEncheres = () => {
   const [data, setData] = useState([]);
@@ -22,28 +30,43 @@ const ListeEncheres = () => {
     <div className="liste">
       <form>
         <Center>
-        <Text fontSize="3xl">Liste des enchères</Text>
+          <Text fontSize="3xl">Liste des enchères</Text>
         </Center>
         <Flex>
-          <box>
+          <Box>
             <label htmlFor="filtres">Filtres :</label>
-            <input type="search" id="filtres" name="filtres" />
-            <label htmlFor="categorie">Catégorie :</label>
-            <Select
-              placeholder="Toutes"
-              name="categorie"
-              id="categorie"
+            <Input
+              htmlSize="9"
+              type="search"
+              id="filtres"
+              name="filtres"
               size="xs"
-            >
-              {categorieSearch.map((categorie) => (
-                <option name={categorie} value={categorie}>
-                  {categorie}
-                </option>
-              ))}
-            </Select>
-          </box>
+            />
+            <Flex>
+              <Box>
+                <label htmlFor="categorie">Catégorie :</label>
+              </Box>
+              <Spacer />
+              <Box>
+                <Select
+                  placeholder="Toutes"
+                  name="categorie"
+                  id="categorie"
+                  size="xs"
+                >
+                  {categorieSearch.map((categorie) => (
+                    <option name={categorie} value={categorie}>
+                      {categorie}
+                    </option>
+                  ))}
+                </Select>
+              </Box>
+            </Flex>
+          </Box>
           <Spacer />
-          <button type="submit" id="submit_list">Rechercher</button>
+          <Button type="submit" id="submit_list" variant="outline">
+            Rechercher
+          </Button>
         </Flex>
       </form>
     </div>
@@ -52,7 +75,9 @@ const ListeEncheres = () => {
 
 export default ListeEncheres;
 
-/* A ajouter pour l'affichage des articles{
+/* A ajouter pour l'affichage des articles
+import Card from "./Card";
+                {
                     data
                         .map((article, index) => 
                             <Card key={index} article={article}/>

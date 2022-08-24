@@ -2,7 +2,7 @@ import React from 'react';
 import EniEnchere from '../components/EniEnchere';
 import LienLogin from '../components/LienLogin';
 import ListeEncheres from '../components/ListeEncheres';
-import { Flex, Spacer, Box, Center } from '@chakra-ui/react';
+import { Flex, Spacer } from '@chakra-ui/react';
 
 const Homes = () => {
     return (
