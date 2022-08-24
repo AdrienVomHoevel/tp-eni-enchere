@@ -8,7 +8,9 @@ const LienLogin = () => {
         <NavLink to="/inscription">
           <li>S'inscrire</li>
         </NavLink>
+        <NavLink to="/connection">
         <li>Se connecter </li>
+        </NavLink>
       </ul>
     </div>
   );
