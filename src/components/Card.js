@@ -1,21 +1,26 @@
-import React from 'react';
+import React from "react";
+import Profil from "../pages/Profil";
 
-const Card = ({article}) => {
-    return (
+const Card = ({ articles }) => {
+  const idVendeur = articles.vendeur.noUtilisateur;
+
+  return (
+    <div>
+      <li>
         <div>
-            <li className="card">
-                <img 
-                    scr={article.img} 
-                    alt={"Article" + article.name} />
-                <div>
-                    <p>{article.name}</p>
-                    <p>Prix : {article.prix}</p>
-                    <p>Fin de l'enchère : {article.finEnchere}</p>
-                    <p>Vendeur : {article.pseudo}</p>
-                </div>
-            </li>
+          <p>{articles.nomArticle}</p>
+          <p>Prix : {articles.miseAPrix}</p>
+          <p>Fin de l'enchère : {articles.dateFinEncheres}</p>
+          <p>
+            Vendeur :
+            <a href="/profil" onClick={() => Profil(idVendeur)}>
+              {articles.vendeur.pseudo}
+            </a>
+          </p>
         </div>
-    );
+      </li>
+    </div>
+  );
 };
 
 export default Card;

@@ -9,7 +9,10 @@ import {
   Text,
   Input,
   Button,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
+import Card from "./Card";
 
 const ListeEncheres = () => {
   const [data, setData] = useState([]);
@@ -22,7 +25,7 @@ const ListeEncheres = () => {
 
   useEffect(() => {
     axios
-      .get("https://restcountries.com/v3.1/all")
+      .get("http://localhost:8080/api/articles")
       .then((res) => setData(res.data));
   }, []);
 
@@ -69,16 +72,17 @@ const ListeEncheres = () => {
           </Button>
         </Flex>
       </form>
+      <ul>
+        <Wrap spacing="5em" align="center" justify="center">
+          {data.map((articles, noArticle) => (
+            <WrapItem>
+              <Card key={noArticle} articles={articles} />
+            </WrapItem>
+          ))}
+        </Wrap>
+      </ul>
     </div>
   );
 };
 
 export default ListeEncheres;
-
-/* A ajouter pour l'affichage des articles
-import Card from "./Card";
-                {
-                    data
-                        .map((article, index) => 
-                            <Card key={index} article={article}/>
-               ) }*/
