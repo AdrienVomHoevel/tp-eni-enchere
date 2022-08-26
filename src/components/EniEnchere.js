@@ -1,10 +1,13 @@
-import React from 'react';
-import { Heading } from '@chakra-ui/react'
+import React from "react";
+import { Heading } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
 
 const EniEnchere = () => {
-    return (
-            <Heading>ENI-Enchères</Heading>
-    );
+  return (
+    <Heading>
+      <NavLink to="/">ENI-Enchères</NavLink>
+    </Heading>
+  );
 };
 
 export default EniEnchere;

@@ -3,16 +3,18 @@ import axios from "axios";
 import {
   Box,
   Center,
-  Flex,
   Select,
-  Spacer,
   Text,
   Input,
   Button,
   Wrap,
   WrapItem,
+  FormLabel,
+  Flex,
+  Spacer,
 } from "@chakra-ui/react";
 import Card from "./Card";
+import { Search2Icon } from "@chakra-ui/icons";
 
 const ListeEncheres = () => {
   const [data, setData] = useState([]);
@@ -30,58 +32,69 @@ const ListeEncheres = () => {
   }, []);
 
   return (
-    <div className="liste">
+    <Box>
       <form>
         <Center>
           <Text fontSize="3xl">Liste des enchères</Text>
         </Center>
-        <Flex>
-          <Box>
-            <label htmlFor="filtres">Filtres :</label>
-            <Input
-              htmlSize="9"
-              type="search"
-              id="filtres"
-              name="filtres"
-              size="xs"
-            />
-            <Flex>
-              <Box>
+        <Flex align="center" justify="space-between">
+          <Flex direction="column">
+            <FormLabel>Filtres :</FormLabel>
+            <Box width={350} height={100}>
+              <Flex align="center">
+                <Search2Icon />
+                <Input
+                  htmlSize="9"
+                  type="search"
+                  id="filtres"
+                  name="filtres"
+                  size="xs"
+                  placeholder="Le nom de l'article contient"
+                />
+              </Flex>
+
+              <Flex align="center" mt={15}>
                 <label htmlFor="categorie">Catégorie :</label>
-              </Box>
-              <Spacer />
-              <Box>
+                <Spacer />
                 <Select
+                  width={125}
                   placeholder="Toutes"
                   name="categorie"
                   id="categorie"
                   size="xs"
                 >
-                  {categorieSearch.map((categorie) => (
-                    <option name={categorie} value={categorie}>
+                  {categorieSearch.map((categorie, index) => (
+                    <option key={index} name={categorie} value={categorie}>
                       {categorie}
                     </option>
                   ))}
                 </Select>
-              </Box>
-            </Flex>
-          </Box>
-          <Spacer />
-          <Button type="submit" id="submit_list" variant="outline">
+              </Flex>
+            </Box>
+          </Flex>
+          <Button
+            ml="3%"
+            mr="45%"
+            type="submit"
+            id="submit_list"
+            variant="outline"
+            w={300}
+            h={75}
+          >
             Rechercher
           </Button>
         </Flex>
       </form>
       <ul>
         <Wrap spacing="5em" align="center" justify="center">
-          {data.map((articles, noArticle) => (
+          {data.map((articles, index) => (
             <WrapItem>
-              <Card key={noArticle} articles={articles} />
+              <Card key={index} articles={articles} />
             </WrapItem>
           ))}
         </Wrap>
       </ul>
-    </div>
+    </Box>
   );
 };
 

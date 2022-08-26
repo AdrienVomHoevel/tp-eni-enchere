@@ -1,16 +1,17 @@
+import { Box, Link } from "@chakra-ui/react";
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 const LienLogin = () => {
   return (
-    <ul>
-      <NavLink to="/inscription">
-        <li>S'inscrire</li>
-      </NavLink>
-      <NavLink to="/connection">
-        <li>Se connecter </li>
-      </NavLink>
-    </ul>
+    <Box>
+      <Link href="/inscription" color="teal.500">
+        S'inscrire
+      </Link>
+      <span> - </span>
+      <Link href="/connection" color="teal.500">
+        Se connecter
+      </Link>
+    </Box>
   );
 };
 
