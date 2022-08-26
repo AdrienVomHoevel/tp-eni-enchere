@@ -8,7 +8,7 @@ const LienLogin = () => {
         S'inscrire
       </Link>
       <span> - </span>
-      <Link href="/connection" color="teal.500">
+      <Link href="/login" color="teal.500">
         Se connecter
       </Link>
     </Box>
